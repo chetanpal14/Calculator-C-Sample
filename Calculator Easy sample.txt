@@ -1,0 +1,95 @@
+using System.Diagnostics;
+
+namespace Question_00
+{
+    public partial class NameCalculator : Form
+    {
+        decimal val1 = 0;
+        decimal val2 = 0;
+        decimal Opresult = 0;  
+        public NameCalculator()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+            textBox2.Text = "0";
+            textBox3.Clear();   
+        }
+
+        private void btnSwitch_Click(object sender, EventArgs e)
+        {
+           if(btnSwitch.Text.ToString() == "Switch to Dark")
+           { 
+             BackColor = Color.Gray;
+             btnSwitch.Text = "Switch to Light".ToString();
+           }
+            else if (btnSwitch.Text.ToString() == "Switch to Light")
+            {
+                BackColor = Color.White;
+                btnSwitch.Text = "Switch to Dark".ToString();
+            }
+        }
+
+        private void num1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBox3.ForeColor = Color.Red;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Red;  
+            val1= Convert.ToDecimal(textBox1.Text);  
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.ForeColor = Color.Red;
+            val2 = Convert.ToDecimal(textBox2.Text);
+        }
+
+        private void btnSun_Click(object sender, EventArgs e)
+        {
+          
+            Opresult = val1+ val2; 
+            textBox3.Text = Opresult.ToString();    
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+            Opresult = val1 - val2;
+            textBox3.Text = Opresult.ToString();
+        }
+
+        private void btnMult_Click(object sender, EventArgs e)
+        {
+            Opresult = val1 * val2;
+            textBox3.Text = Opresult.ToString();
+        }
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+            if (val2 != 0)
+            {
+                Opresult = val1 / val2;
+                textBox3.Text = Opresult.ToString();
+            }
+            else
+            {
+                MessageBox.Show("It is no possible divide by 0");
+            }
+        }
+    }
+}
